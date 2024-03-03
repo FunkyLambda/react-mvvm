@@ -1,26 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {NavigationContainer} from '@react-navigation/native'
+import MainRoute from './views/routes/MainRoute'
+import {NavigationRef} from './views/navigation'
+import {IMainViewModel} from './viewmodels/Main/types'
 
-function App() {
+export default (props: {vm: IMainViewModel}) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <NavigationContainer ref={NavigationRef}>
+      <MainRoute vm={props.vm}/>
+    </NavigationContainer>
+  )
 }
-
-export default App;
